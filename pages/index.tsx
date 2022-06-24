@@ -13,9 +13,11 @@ export default function Home(): JSX.Element {
       <P>Ducimus pariatur accusantium quis aliquam maxime tempore explicabo, sed consequuntur porro quo.</P>
       <P size='l'>Numquam beatae saepe laudantium, earum rerum expedita amet nihil minima.</P>
       <Tag color='gray'>Gray</Tag>
-      <Tag color='red'>Red</Tag>
+      <Tag color='red'>hh.ru</Tag>
+      <Tag color='red' href="https://hh.ru">hh.ru</Tag>
       <Tag color='green'>Green</Tag>
       <Tag color='primary'>Primary</Tag>
+      <Tag color='primary' size='s'>Primary</Tag>
       <Tag>Ghost</Tag>
     </>
   );
