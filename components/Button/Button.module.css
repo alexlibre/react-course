@@ -5,7 +5,7 @@
 	padding: 10px;
 
 	cursor: pointer;
-	transition: all 0.2s ease;
+	transition: var(--transition-default);
 	text-align: center;
 
 	border: none;
@@ -20,7 +20,7 @@
 }
 
 .primary svg {
-	transition: all 0.2s ease;
+	transition: var(--transition-default);
 	fill: var(--white);
 }
 
@@ -35,7 +35,7 @@
 }
 
 .ghost svg {
-	transition: all 0.2s ease;
+	transition: var(--transition-default);
 }
 
 .ghost:hover {
@@ -54,6 +54,6 @@
 }
 
 .down {
-	transition: all 0.2s ease;
+	transition: var(--transition-default);
 	transform: rotate(90deg);
 }

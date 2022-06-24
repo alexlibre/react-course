@@ -1,0 +1,17 @@
+.rating {
+	display: block;
+}
+
+.item {
+	margin: 0 5px 0 0;
+
+	cursor: pointer;
+}
+
+.star {
+	transition: var(--transition-default);
+}
+
+.filled {
+	fill: var(--primary);
+}
