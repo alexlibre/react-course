@@ -30,6 +30,7 @@ a {
 	--green-light: #c8f8e4;
 	--font-family: 'Noto Sans', sans-serif;
 	--transition-default: all 0.1s linear;
+	--breakpoint-mobile: 768px;
 }
 
 ::selection {
