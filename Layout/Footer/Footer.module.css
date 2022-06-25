@@ -1,0 +1,23 @@
+.footer {
+	display: grid;
+
+	padding: 25px 32px;
+
+	color: var(--white);
+	background-color: var(--primary);
+	grid-template-columns: 1fr repeat(2, auto);
+	grid-gap: 40px;
+}
+
+.link {
+	display: inline-block;
+}
+
+@media screen and (max-width: 767px) {
+	.footer {
+		grid-template-columns: auto;
+		justify-items: center;
+
+		text-align: center;
+	}
+}
