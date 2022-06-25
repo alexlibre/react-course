@@ -31,3 +31,8 @@ a {
 	--font-family: 'Noto Sans', sans-serif;
 	--transition-default: all 0.2s ease;
 }
+
+::selection {
+	color: var(--white);
+	background: var(--primary);
+}
