@@ -2,13 +2,7 @@ import { useEffect, useState } from 'react';
 import { Button, Htag, P, Tag, Rating } from '../components';
 
 export default function Home(): JSX.Element {
-	const [counter, setCounter] = useState<number>(0);
-
-	useEffect(() => {
-		if (counter > 0) {
-			console.log('Counter', counter);
-		}
-	});
+	const [rating, setRating] = useState<number>(4);
 
 	return (
 		<>
@@ -36,7 +30,7 @@ export default function Home(): JSX.Element {
 				Primary
 			</Tag>
 			<Tag>Ghost</Tag>
-			<Rating rating={4}></Rating>
+			<Rating rating={rating} isEditable setRating={setRating}></Rating>
 		</>
 	);
 }

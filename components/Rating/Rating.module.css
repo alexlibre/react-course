@@ -2,16 +2,16 @@
 	display: block;
 }
 
-.item {
-	margin: 0 5px 0 0;
-
+.editable {
 	cursor: pointer;
 }
 
-.star {
+.star svg {
+	margin-right: 5px;
+
 	transition: var(--transition-default);
 }
 
-.filled {
+.filled svg {
 	fill: var(--primary);
 }
