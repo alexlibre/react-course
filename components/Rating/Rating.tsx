@@ -54,13 +54,15 @@ export const Rating = ({ isEditable = false, rating, setRating, ...props }: Rati
 
 	return (
 		<div className={cn(styles.rating)} {...props}>
-			{ratingArray.map((rating, i) => {
-				return (
-					<span className={styles.item} key={i}>
-						{rating}
-					</span>
-				);
-			})}
+			<div className={styles.rating__container}>
+				{ratingArray.map((rating, i) => {
+					return (
+						<span className={styles.item} key={i}>
+							{rating}
+						</span>
+					);
+				})}
+			</div>
 		</div>
 	);
 };

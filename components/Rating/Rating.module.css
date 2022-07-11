@@ -2,8 +2,29 @@
 	display: block;
 }
 
+.rating__container {
+	display: flex;
+	align-items: center;
+
+	height: 20px;
+}
+
 .editable {
 	cursor: pointer;
+}
+
+.item {
+	display: inline-block;
+
+	height: 20px;
+}
+
+.star {
+	display: inline-block;
+
+	height: 100%;
+
+	line-height: 20px;
 }
 
 .star svg {
