@@ -3,21 +3,22 @@ import cn from 'classnames';
 import styles from './Menu.module.css';
 import { AppContext } from '../../context/app.context';
 import { FirstLevelMenuItem, PageItem } from '../../interfaces/menu.interface';
-import CoursesIcon from './icons/graduation.svg';
-import ServicesIcon from './icons/cloud.svg';
-import ProductsIcon from './icons/product.svg';
-import BooksIcon from './icons/book.svg';
-import { TopLevelCategory } from '../../interfaces/page.interface';
-
-const firstLevelMenu: FirstLevelMenuItem[] = [
-	{ route: 'courses', name: 'Курсы', icon: <CoursesIcon />, id: TopLevelCategory.Courses },
-	{ route: 'services', name: 'Сервисы', icon: <ServicesIcon />, id: TopLevelCategory.Services },
-	{ route: 'books', name: 'Книги', icon: <BooksIcon />, id: TopLevelCategory.Books },
-	{ route: 'products', name: 'Товары', icon: <ProductsIcon />, id: TopLevelCategory.Products }
-];
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { firstLevelMenu } from '../../helpers/helpers';
 
 export const Menu = (): JSX.Element => {
 	const { menu, setMenu, firstCategory } = useContext(AppContext);
+	const router = useRouter();
+
+	const openSecondLevel = (secondCategory: string) => {
+		setMenu && setMenu(menu.map(m => {
+			if (m._id.secondCategory == secondCategory) {
+				m.isOpened = !m.isOpened;
+			}
+			return m;
+		}));
+	};
 
 	const buildFirstLevel = () => {
 		return (
@@ -27,10 +28,12 @@ export const Menu = (): JSX.Element => {
 						<div className={cn(styles['menu-primary__head'], {
 							[styles['menu-primary__head_active']]: m.id == firstCategory
 						})}>
-							<a href={`/${m.route}`} className={styles['menu-primary__link']}>
-								{m.icon}
-								<span>{m.name}</span>
-							</a>
+							<Link href={`/${m.route}`}>
+								<a className={styles['menu-primary__link']}>
+									{m.icon}
+									<span>{m.name}</span>
+								</a>
+							</Link>
 						</div>
 						{m.id == firstCategory && buildSecondLevel(m)}
 					</li>
@@ -42,16 +45,22 @@ export const Menu = (): JSX.Element => {
 	const buildSecondLevel = (menuItem: FirstLevelMenuItem) => {
 		return (
 			<ul className={styles['menu-secondary']}>
-				{menu.map(m => (
-					<li key={m._id.secondCategory} className={styles['menu-secondary__item']}>
-						<span className={styles['menu-secondary__head']}>{m._id.secondCategory}</span>
-						<div className={cn(styles['menu-secondary__block'], {
-							[styles['menu-secondary__block_opened']]: m.isOpened
-						})}>
-							{buildThirdLevel(m.pages, menuItem.route)}
-						</div>
-					</li>
-				))}
+				{
+					menu.map(m => {
+						if (m.pages.map(p => p.alias).includes(router.asPath.split('/')[2])) {
+							m.isOpened = true;
+						}
+						return (
+							<li key={m._id.secondCategory} className={styles['menu-secondary__item']}>
+								<span className={styles['menu-secondary__head']} onClick={() => openSecondLevel(m._id.secondCategory)}>{m._id.secondCategory}</span>
+								<div className={cn(styles['menu-secondary__block'], {
+									[styles['menu-secondary__block_opened']]: m.isOpened
+								})}>
+									{buildThirdLevel(m.pages, menuItem.route)}
+								</div>
+							</li>
+						);
+					})}
 			</ul>
 		);
 	};
@@ -63,11 +72,17 @@ export const Menu = (): JSX.Element => {
 		return (
 			<ul className={styles['menu-tertiary']}>
 				{sortedPages.map((page) => {
+					const routePath = `/${route}/${page.alias}`;
+
 					return (
 						<li className={styles['menu-tertiary__item']} key={page._id}>
-							<a className={cn(styles['menu-tertiary__link'], {
-								[styles['menu-tertiary__link_active']]: false
-							})} href={`/${route}/${page.alias}`}>{page.category}</a>
+							<Link href={routePath}>
+								<a className={cn(styles['menu-tertiary__link'], {
+									[styles['menu-tertiary__link_active']]: routePath == router.asPath
+								})}>
+									{page.category}
+								</a>
+							</Link>
 						</li>
 					);
 				})}

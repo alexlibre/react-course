@@ -73,6 +73,14 @@
 	line-height: 16px;
 }
 
+.menu-secondary__block {
+	display: none;
+}
+
+.menu-secondary__block_opened {
+	display: block;
+}
+
 .menu-tertiary {
 	display: flex;
 	flex-direction: column;
