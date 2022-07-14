@@ -1,0 +1,77 @@
+.header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    justify-items: left;
+    gap: 20px;
+    padding: 40px 0 0;
+}
+
+.headhunter {
+}
+
+.headhunter__header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    justify-items: left;
+    gap: 20px;
+    margin: 0 0 24px;
+}
+
+.headhunter__block {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 30px;
+}
+
+.headhunter__count {
+    width: 260px;
+    padding: 21px 0 31px;
+}
+
+.headhunter__title {
+    display: block;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 27px;
+    text-align: center;
+}
+
+.headhunter__list {
+    display: grid;
+    padding: 21px 0;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.headhunter__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.headhunter__item:not(:first-child) {
+    border-left: 1px solid var(--gray-light);
+}
+
+.headhunter__qty {
+    display: block;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 49px;
+    text-align: center;
+    color: var(--primary);
+    margin: 12px 0 0;
+}
+
+.headhunter__salary {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 35px;
+    text-align: center;
+    margin: 8px 0 0;
+}
+
+.headhunter__grade {
+    margin: 12px 0 0;
+}

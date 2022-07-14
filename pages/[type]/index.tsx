@@ -28,7 +28,9 @@ export const getStaticProps: GetStaticProps<TypeProps> = async ({ params }: GetS
         };
     }
 
-    const firstCategoryItem = firstLevelMenu.find(m => m.route == params.type);
+    const firstCategoryItem = firstLevelMenu.find(m => {
+        return m.route == params.type;
+    });
     if (typeof firstCategoryItem === 'undefined') {
         return {
             notFound: true

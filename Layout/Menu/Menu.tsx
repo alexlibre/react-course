@@ -24,7 +24,7 @@ export const Menu = (): JSX.Element => {
 		return (
 			<ul className={styles['menu-primary']}>
 				{firstLevelMenu.map(m => (
-					<li key={m.route} className={styles['menu-primary__item']}>
+					<li key={m.id} className={styles['menu-primary__item']}>
 						<div className={cn(styles['menu-primary__head'], {
 							[styles['menu-primary__head_active']]: m.id == firstCategory
 						})}>
@@ -46,7 +46,7 @@ export const Menu = (): JSX.Element => {
 		return (
 			<ul className={styles['menu-secondary']}>
 				{
-					menu.map(m => {
+					menu && menu.map(m => {
 						if (m.pages.map(p => p.alias).includes(router.asPath.split('/')[2])) {
 							m.isOpened = true;
 						}
