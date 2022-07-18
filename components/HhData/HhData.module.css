@@ -1,0 +1,97 @@
+.header {
+	display: grid;
+	grid-template-columns: auto 1fr;
+
+	align-items: baseline;
+	justify-items: left;
+	gap: 20px;
+}
+
+.count {
+	min-width: 260px;
+	padding: 21px 0 31px;
+}
+
+.title {
+	display: block;
+
+	text-align: center;
+
+	font-size: 20px;
+	font-weight: 300;
+	line-height: 27px;
+}
+
+.qty {
+	display: block;
+
+	margin: 12px 0 0;
+
+	text-align: center;
+
+	color: var(--primary);
+
+	font-size: 36px;
+	font-weight: 700;
+	line-height: 49px;
+}
+
+.list {
+	display: grid;
+
+	padding: 21px 0;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.item {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.item:not(:first-child) {
+	border-left: 1px solid var(--gray-light);
+}
+
+.salary {
+	margin: 8px 0 0;
+
+	text-align: center;
+
+	font-size: 26px;
+	font-weight: 700;
+	line-height: 35px;
+}
+
+.grade {
+	margin: 12px 0 0;
+}
+
+.block {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 30px;
+}
+
+@media screen and (max-width: 1200px) {
+	.block {
+		grid-template-columns: 1fr;
+
+		align-items: stretch;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.list {
+		grid-template-columns: 1fr;
+	}
+
+	.item {
+		padding: 25px 0;
+	}
+
+	.item:not(:first-child) {
+		border-top: 1px solid var(--gray-light);
+		border-left: none;
+	}
+}

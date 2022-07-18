@@ -6,10 +6,10 @@ import GradeFill from './grade-fill.svg';
 
 export const Grade = ({ value = 1, className, ...props }: GradeProps): JSX.Element => {
 
-    const renderSwitch = (value) => {
+    const renderSwitch = (value: number): JSX.Element => {
         switch (value) {
             case 2:
-                return (<><GradeFill /><GradeEmpty /><GradeEmpty /></>);
+                return (<><GradeFill /><GradeFill /><GradeEmpty /></>);
                 break;
             case 3:
                 return (<><GradeFill /><GradeFill /><GradeFill /></>);

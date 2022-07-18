@@ -1,6 +1,6 @@
 .wrapper {
 	display: grid;
-	grid-template-columns: auto 230px minmax(320px, 1200px) auto;
+	grid-template-columns: auto 252px minmax(320px, 1200px) auto;
 	grid-template-rows: auto 1fr auto;
 	grid-template-areas:
 		'. header header .'
@@ -20,7 +20,12 @@
 }
 
 .body {
+	display: flex;
+	flex-direction: column;
+
+	padding: 0 30px;
 	grid-area: body;
+	gap: 50px;
 }
 
 .footer {

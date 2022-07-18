@@ -34,6 +34,7 @@ a {
 	--font-family: 'Noto Sans', sans-serif;
 	--transition-default: all 0.1s linear;
 	--breakpoint-mobile: 768px;
+	--breakpoint-tablet: 1200px;
 }
 
 ::selection {

@@ -1,0 +1,39 @@
+.list {
+	display: grid;
+
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+	gap: 30px;
+}
+
+.item {
+	display: grid;
+	gap: 15px;
+	grid-template-columns: 50px 1fr;
+}
+
+.story {
+	display: grid;
+	gap: 17px;
+	grid-template-rows: auto 1fr;
+	justify-items: center;
+}
+
+.story::after {
+	width: 1px;
+	height: 100%;
+
+	content: '';
+
+	background-color: var(--gray-light);
+}
+
+.content {
+	padding: 12px 0 0;
+}
+
+.title {
+	margin: 0 0 20px;
+}
